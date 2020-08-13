@@ -2,7 +2,7 @@
 '   A code template for vbscript files.
 '   (c) 2019-2020 Markus J. Auvo
 '
-'	GUIDE:
+'   GUIDE:
 '
 '   Simply comment out unnecessary parts.
 ' ----------------------------------------------------------------------
@@ -13,8 +13,13 @@ OPTION EXPLICIT
 '  Constants and Variables
 ' ----------------------------------------------------------------------
 
+' STRINGS
+
+' Strings for writing to a file
 Dim targetFileDir:      targetFileDir = "<absolute folder path>"
 Dim targetFile:         targetFile = "<filename>"
+
+' OBJECTS
 
 Dim objFSO:             Set objFSO = CreateObject("Scripting.FileSystemObject")
 Dim objFileToWrite:     Set objFileToWrite = objFSO.OpenTextFile(targetFileDir + targetFile, 2, true)
@@ -36,7 +41,7 @@ End Sub
 '
 ' Displays a message in console window with a line break
 '
-Sub WriteToConsoleNL(msg)
+Sub WriteToConsoleNewLine(msg)
     WScript.Echo msg 
 End Sub
 
@@ -44,7 +49,7 @@ End Sub
 ' Displays a message in console window without a line break
 ' and moves the cursor back to the beginning of the line.
 '
-Sub WriteToConsoleR(msg)
+Sub WriteToConsoleLineReturn(msg)
     WScript.StdOut.Write msg & chr(13)
 End Sub
 

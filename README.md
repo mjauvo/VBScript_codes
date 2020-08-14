@@ -4,7 +4,8 @@ Miscellaneous VBScript codes to make life easier in Windows environment
 ### filename_find_replace.vbs
 
 The script works in similar fashion as find-and-replace (CTRL+H)
-function in e.g. Microsoft Windows Office applications.
+function in e.g. Microsoft Windows Office applications for text.
+In this case the script renames several files at once.
 
 ### print_movie_list.vbs
 

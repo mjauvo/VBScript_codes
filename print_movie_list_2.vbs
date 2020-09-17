@@ -258,7 +258,7 @@ Function iterateThroughFiles(subfolder)
                 End If
 
             ' Write to file
-            WriteToFile(movieTitle & "; " movieYear & "; " movieTags & "; " & movieFolderStructure & "; " & movieLength & "; " & movieSize & "; " & movieFileType & "; " & movieFile)
+            WriteToFile(movieTitle & "; " & movieYear & "; " & movieTags & "; " & movieFolderStructure & "; " & movieLength & "; " & movieSize & "; " & movieFileType & "; " & movieFile)
 
             intFileCount = intFileCount + 1
         End If

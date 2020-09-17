@@ -105,6 +105,7 @@ Function getRootDirectory(rootPath)
 
         Const COL_TITLE = "Title"
         Const COL_YEAR = "Year"
+        Const COL_TAGS = "Tags"
         Const COL_LENGTH = "Length"
         Const COL_SIZE = "Size"
         Const COL_FILE_TYPE = "File Type"
@@ -115,7 +116,7 @@ Function getRootDirectory(rootPath)
         ' Write column headers into output file
         WriteToFile("sep=;")    ' Make sure that Excel handles the list separator correctly
         WriteToConsole "Column headers for output file..."
-        WriteToFile(COL_TITLE & "; " & COL_FOLDER & "; " & COL_LENGTH & "; " & COL_SIZE & "; " & COL_FILE_TYPE & "; " & COL_FILENAME)
+        WriteToFile(COL_TITLE & "; " & COL_YEAR & "; " & COL_TAGS & "; " & COL_FOLDER & "; " & COL_LENGTH & "; " & COL_SIZE & "; " & COL_FILE_TYPE & "; " & COL_FILENAME)
         WriteToConsoleNL "OK!"
         WriteToConsoleNL ""
 
@@ -209,6 +210,13 @@ Function iterateThroughFiles(subfolder)
                     movieYear = "#N/A"
                 End If
 
+            Dim movieTags
+            movieTags = folderNamespace.GetDetailsOf(fileName, MOVIE_TAGS)
+
+                If (len(movieTags) < 1) Then
+                    movieTags = "#N/A"
+                End If
+
             Dim movieLength
             movieLength = folderNamespace.GetDetailsOf(fileName, MOVIE_LENGTH)
 
@@ -250,7 +258,7 @@ Function iterateThroughFiles(subfolder)
                 End If
 
             ' Write to file
-            WriteToFile(movieTitle & "; " & movieFolderStructure & "; " & movieLength & "; " & movieSize & "; " & movieFileType & "; " & movieFile)
+            WriteToFile(movieTitle & "; " movieYear & "; " movieTags & "; " & movieFolderStructure & "; " & movieLength & "; " & movieSize & "; " & movieFileType & "; " & movieFile)
 
             intFileCount = intFileCount + 1
         End If
